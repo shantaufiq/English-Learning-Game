@@ -12,19 +12,14 @@ public class DialogController : MonoBehaviour
 {
     public int _index;
     [Header("Dialog Components")]
+    public List<DisplayCharComponents> CharacterDialog;
     public List<MDialog> DialogStage;
     public List<AudioSource> Audios = new List<AudioSource>();
     public TypingStatus typingstatus;
     public float typingSpeed;
-    [SerializeField] private TextMeshProUGUI _TextMeshComponent1;
-    [SerializeField] private TextMeshProUGUI _TextMeshComponent2;
 
     [Header("UI Object")]
     public GameObject DialogComponents;
-    public GameObject DisplayDialog1;
-    public GameObject DisplayDialog2;
-    public GameObject DisplayChar1;
-    public GameObject DisplayChar2;
 
     private void Awake()
     {
@@ -43,7 +38,6 @@ public class DialogController : MonoBehaviour
                 if (i == _index)
                 {
                     StartCoroutine(TypingEffect(i));
-
                 }
             }
         }
@@ -61,8 +55,11 @@ public class DialogController : MonoBehaviour
     public IEnumerator TypingEffect(int index)
     {
         typingstatus = TypingStatus.running;
-        _TextMeshComponent1.text = "";
-        _TextMeshComponent2.text = "";
+
+        foreach (var text in CharacterDialog)
+        {
+            text.DialogText.text = "";
+        }
 
         Audios[_index].Play();
 
@@ -77,26 +74,17 @@ public class DialogController : MonoBehaviour
 
     public void ToggleOnOffDialog(int charid, char l)
     {
-        switch (charid)
+        for (int i = 0; i < CharacterDialog.Count; i++)
         {
-            case 0:
-                _TextMeshComponent1.text += l;
-                DisplayChar1.transform.localScale = new Vector3(1.5f, 1.5f, 1.5f);
-                DisplayChar2.transform.localScale = new Vector3(1f, 1f, 1f);
-                break;
-            case 1:
-                _TextMeshComponent2.text += l;
-                DisplayChar1.transform.localScale = new Vector3(1f, 1f, 1f);
-                DisplayChar2.transform.localScale = new Vector3(1.5f, 1.5f, 1.5f);
-                break;
+            if (i == charid)
+            {
+                CharacterDialog[i].ToggleIsOn(l);
+            }
+            else
+            {
+                CharacterDialog[i].ToggleIsOff();
+            }
         }
-
-        // temporary jika 2 character
-        var stat1 = charid == 0 ? true : false;
-        var stat2 = charid == 1 ? true : false;
-
-        DisplayDialog1.SetActive(stat1);
-        DisplayDialog2.SetActive(stat2);
     }
 
     public void NextDialog()
