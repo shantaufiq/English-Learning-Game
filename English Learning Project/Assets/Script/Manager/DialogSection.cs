@@ -4,5 +4,5 @@ using UnityEngine;
 
 public class DialogSection : MonoBehaviour
 {
-    public List<MDialog> _Dialog;
+    public List<MDialog> _DialogSection;
 }

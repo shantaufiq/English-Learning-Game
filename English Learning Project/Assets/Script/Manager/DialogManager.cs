@@ -7,6 +7,7 @@ public class DialogManager : MonoBehaviour
 {
     int _index;
     public List<DialogSection> _Dialogs;
+    public DialogController _DialogController;
     private void Awake()
     {
         _index = PlayerPrefs.GetInt("subjectID");
@@ -17,9 +18,9 @@ public class DialogManager : MonoBehaviour
     }
     public void SetDialogsOnStage()
     {
-        foreach (MDialog dialog in _Dialogs[_index]._Dialog)
+        foreach (MDialog dialog in _Dialogs[_index]._DialogSection)
         {
-            DialogController.instance.DialogStage.Add(dialog);
+            _DialogController.DialogStage.Add(dialog);
         }
     }
 }
