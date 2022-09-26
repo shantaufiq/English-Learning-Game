@@ -6,6 +6,10 @@ using TMPro;
 
 public class GameManager : MonoBehaviour
 {
+    public void SetSubjectID(int _SubjectID) // player choose subject
+    {
+        PlayerPrefs.SetInt("subjectID", _SubjectID);
+    }
 
     public void ChangeScene(string sceneTarget)
     {
@@ -20,4 +24,5 @@ public class GameManager : MonoBehaviour
         UnityEditor.EditorApplication.isPlaying = false;
 #endif
     }
+
 }
