@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DialogSection : MonoBehaviour
+public class QuizSubject : MonoBehaviour
 {
-    public List<MDialog> _DialogSection;
+    public List<MQuestion> Questions;
 }

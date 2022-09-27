@@ -11,6 +11,11 @@ public class GameManager : MonoBehaviour
         PlayerPrefs.SetInt("subjectID", _SubjectID);
     }
 
+    public void SetQuizID(int _QuizID)
+    {
+        PlayerPrefs.SetInt("QuizID", _QuizID);
+    }
+
     public void ChangeScene(string sceneTarget)
     {
         SceneManager.LoadScene(sceneTarget);

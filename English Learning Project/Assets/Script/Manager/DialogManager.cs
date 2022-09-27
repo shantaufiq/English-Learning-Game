@@ -6,19 +6,17 @@ using UnityEngine;
 public class DialogManager : MonoBehaviour
 {
     int _index;
-    public List<DialogSection> _Dialogs;
+    public List<DialogSubject> _Dialogs;
     public DialogController _DialogController;
-    private void Awake()
-    {
+    private void Awake() =>
         _index = PlayerPrefs.GetInt("subjectID");
-    }
-    private void Start()
-    {
+
+    private void Start() =>
         SetDialogsOnStage();
-    }
+
     public void SetDialogsOnStage()
     {
-        foreach (MDialog dialog in _Dialogs[_index]._DialogSection)
+        foreach (MDialog dialog in _Dialogs[_index]._DialogSubject)
         {
             _DialogController.DialogStage.Add(dialog);
         }
