@@ -635,6 +635,30 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1197811201}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+      - m_Target: {fileID: 2119543034}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
 --- !u!114 &231793800
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1249,7 +1273,7 @@ MonoBehaviour:
   - CharacterID: 0
     Dialog: This is character number three
     AudioClip: {fileID: 8300000, guid: ef1e65e283c75c2478a040f52908e7fb, type: 3}
-  - CharacterID: 0
+  - CharacterID: 1
     Dialog: Almost finish
     AudioClip: {fileID: 8300000, guid: 5bb569c1048cd0944bfc79e386dd0e16, type: 3}
 --- !u!4 &725773421
@@ -1729,6 +1753,8 @@ MonoBehaviour:
   typingstatus: 0
   typingSpeed: 0.1
   DialogComponents: {fileID: 315540843}
+  ButtonNext: {fileID: 177776571}
+  ButtonPrevious: {fileID: 690870423}
 --- !u!4 &1024948639
 Transform:
   m_ObjectHideFlags: 0
@@ -1761,7 +1787,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1197811202
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2917,7 +2943,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &2119543035
 RectTransform:
   m_ObjectHideFlags: 0

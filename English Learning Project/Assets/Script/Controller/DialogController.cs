@@ -20,6 +20,9 @@ public class DialogController : MonoBehaviour
 
     [Header("UI Object")]
     public GameObject DialogComponents;
+    public GameObject ButtonNext;
+    public GameObject ButtonPrevious;
+
 
     private void Awake()
     {
@@ -41,6 +44,8 @@ public class DialogController : MonoBehaviour
                 }
             }
         }
+
+        BtnToggleActivation();
     }
 
     public void SetAudiosClip()
@@ -99,6 +104,15 @@ public class DialogController : MonoBehaviour
         if (_index == 0 || typingstatus == TypingStatus.running) return;
         _index = _index < 0 ? _index - 1 : 0;
         typingstatus = TypingStatus.start;
+    }
+
+    public void BtnToggleActivation()
+    {
+        var statEnd = _index == DialogStage.Count - 1 ? false : true;
+        ButtonNext.SetActive(statEnd);
+
+        var statFirst = _index == 0 ? false : true;
+        ButtonPrevious.SetActive(statFirst);
     }
 
     public void StartDialog()
