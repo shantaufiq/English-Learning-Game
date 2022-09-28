@@ -42,7 +42,6 @@ public class QuizController : MonoBehaviour
             _QuestionUI.SendQuizResult(true);
 
             correctPoint += 1;
-            _index = _index < _Questions.Count - 1 ? _index + 1 : _Questions.Count - 1;
         }
         else
         {
@@ -50,10 +49,29 @@ public class QuizController : MonoBehaviour
             _QuestionUI.SendQuizResult(false);
 
             incorrectPoint += 1;
-            _index = _index < _Questions.Count - 1 ? _index + 1 : _Questions.Count - 1;
         }
 
         _QuestionUI.ToggleUI(false);
         _QuestionUI.SetScoreResult(correctPoint, incorrectPoint);
+    }
+
+    public void NextQuestion()
+    {
+        if (correctPoint + incorrectPoint < _Questions.Count)
+        {
+            _index += 1;
+            _QuestionUI.ToggleUI(true);
+        }
+        else
+        {
+            _QuestionUI.DisplayGameFinish(correctPoint, incorrectPoint);
+        }
+    }
+
+    public void ResetGame()
+    {
+        _index = 0;
+        correctPoint = 0;
+        incorrectPoint = 0;
     }
 }

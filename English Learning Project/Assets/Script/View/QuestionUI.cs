@@ -18,7 +18,7 @@ public class QuestionUI : MonoBehaviour
     public GameObject panelResult;
     public TextMeshProUGUI textMessage;
 
-    [Header("Score")]
+    [Header("Score Bar")]
     public TextMeshProUGUI trueResult;
     public TextMeshProUGUI falseResult;
 
@@ -27,6 +27,11 @@ public class QuestionUI : MonoBehaviour
     public GameObject displayQuestion;
     public GameObject scoreCorrect;
     public GameObject scoreIncorrect;
+
+    [Header("Pop-up Score Result")]
+    public GameObject scoreResult;
+    public TextMeshProUGUI correctScore;
+    public TextMeshProUGUI incorrectScore;
 
     private void Awake()
     {
@@ -58,6 +63,14 @@ public class QuestionUI : MonoBehaviour
         _QuizController.Answer(btn.name);
     }
 
+    public void OnClickResetGame()
+    {
+        _QuizController.ResetGame();
+        ToggleUI(true);
+        trueResult.text = "0";
+        falseResult.text = "0";
+    }
+
     public void SetScoreResult(int _true, int _false)
     {
         trueResult.text = _true.ToString();
@@ -70,5 +83,12 @@ public class QuestionUI : MonoBehaviour
         displayQuestion.SetActive(result);
         scoreCorrect.SetActive(result);
         scoreIncorrect.SetActive(result);
+    }
+
+    public void DisplayGameFinish(int correct, int incorrect)
+    {
+        scoreResult.SetActive(true);
+        correctScore.text = correct.ToString();
+        incorrectScore.text = incorrect.ToString();
     }
 }
