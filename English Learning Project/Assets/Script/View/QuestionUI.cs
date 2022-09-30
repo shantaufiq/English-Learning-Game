@@ -14,9 +14,11 @@ public class QuestionUI : MonoBehaviour
     [Header("Button Option")]
     public List<Button> buttonOption;
 
-    [Header("panel reasult")]
+    [Header("panel reasult True or False")]
     public GameObject panelResult;
     public TextMeshProUGUI textMessage;
+    public Sprite trueImage;
+    public Sprite falseImage;
 
     [Header("Score Bar")]
     public TextMeshProUGUI trueResult;
@@ -48,12 +50,14 @@ public class QuestionUI : MonoBehaviour
 
         if (result)
         {
-            panelResult.GetComponent<Image>().color = Color.green;
+            // panelResult.GetComponent<Image>().color = Color.green;
+            panelResult.GetComponent<Image>().sprite = trueImage;
             textMessage.text = "true";
         }
         else
         {
-            panelResult.GetComponent<Image>().color = Color.red;
+            // panelResult.GetComponent<Image>().color = Color.red;
+            panelResult.GetComponent<Image>().sprite = falseImage;
             textMessage.text = "false";
         }
     }

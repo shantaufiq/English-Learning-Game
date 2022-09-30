@@ -102,7 +102,7 @@ public class DialogController : MonoBehaviour
     public void PreviousDialog()
     {
         if (_index == 0 || typingstatus == TypingStatus.running) return;
-        _index = _index < 0 ? _index - 1 : 0;
+        _index = _index > 0 ? _index - 1 : 0;
         typingstatus = TypingStatus.start;
     }
 
